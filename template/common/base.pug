@@ -1,65 +1,17 @@
-mixin videoCard(image, title, playIcon = true)
-    .video-card
-        .video-card-container
-            img.video-image(src=image alt=title)
-            .video-content
-                p.video-title= title
-            if playIcon
-                .play-button
-                    svg(width="45" height="45" viewBox="0 0 45 45" fill="none")
-                        circle(cx="22.5" cy="22.5" r="21.5" stroke="#09EBC9" stroke-width="2")
-                        path(d="M30.3444 20.8678C31.4694 21.6649 31.4694 23.3344 30.3444 24.1315L21.2449 30.5791C19.9204 31.5176 18.0886 30.5705 18.0886 28.9472L18.0886 16.0521C18.0886 14.4288 19.9204 13.4817 21.2449 14.4202L30.3444 20.8678Z" fill="#09EBC9")
-
+mixin imgPlus(src)
+        - src = src ? "https://resource.goodkidsplay.com/" + src : ""
+        img.cs-lazy(data-load=src, alt="") 
+        .loading-img
+            .loading-inner
+                span loading...
 doctype html
-html(lang="en")
+html(ver=common.version)
     head
-        meta(charset="UTF-8")
-        meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        meta(name="description" content="Fun-filled videos for kids! Educational and entertaining content to spark creativity and imagination.")
-        title PlayToys.tv - Fun-filled Videos for Kids!
+        meta(content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" data-n-head="true" name="viewport")
+        meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
         link(rel="icon" type="image/x-icon" href="/favicon.ico")
         style
             include:scss /static/scss/base.scss
         block head
     body
-        header.main-header
-            .header-container
-                .logo-container
-                    img.logo(src="https://cdn.builder.io/api/v1/image/assets/TEMP/c753db7b628b1f6306986c6f98693a84a5967d08?width=454" alt="PlayToys.tv")
-                nav.main-navigation
-                    ul.nav-menu
-                        li.nav-item
-                            a.nav-link(href="#") Animals
-                        li.nav-item
-                            a.nav-link(href="#") Cartoons
-                        li.nav-item
-                            a.nav-link(href="#") Colors
-                        li.nav-item
-                            a.nav-link(href="#") Education
-                        li.nav-item
-                            a.nav-link(href="#") Car&Vehicle
-                        li.nav-item
-                            a.nav-link(href="#") Playdoh&Ball
-                .mobile-menu-toggle
-                    span.hamburger-line
-                    span.hamburger-line
-                    span.hamburger-line
-
-        main.main-content
-            block body
-
-        footer.main-footer
-            .footer-content
-                .footer-logo-section
-                    img.footer-logo(src="https://cdn.builder.io/api/v1/image/assets/TEMP/1f7b00d50a63afdef4b83fa2d8780ddcc0af8603?width=454" alt="PlayToys.tv")
-                    p.footer-description We Love Toys so we created this site and hundreds of videos dedicated to children. Play toys videos are fun and inspiring. We teach kids colors, shapes, alphabets, numbers with toys. We are sure that you will love them.
-                    p.copyright-text We have all the copyrights of our works.
-                    p.legal-text If you use our content without our permission, you will be held legally responsible. Please respect our work.
-                .footer-links
-                    ul.footer-menu
-                        li.footer-item
-                            a.footer-link(href="#") About
-                        li.footer-item
-                            a.footer-link.privacy-link(href="#") Privacy
-                        li.footer-item
-                            a.footer-link(href="#") Contacts
+        block body
