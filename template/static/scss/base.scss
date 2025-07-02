@@ -23,6 +23,27 @@ body {
     sans-serif;
   line-height: 1.6;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+// Page Loading Animation
+body {
+  opacity: 0;
+  animation: fadeIn 0.8s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+// Smooth transitions for all interactive elements
+a,
+button,
+.video-card,
+.play-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 // Color Variables
