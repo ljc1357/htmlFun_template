@@ -1,6 +1,101 @@
 extends /common/base.pug
+
 block body
-    div demo
-    div 变量a #{common.lang.a}
-    div 变量c1111111111
-    include /components/demo.pug
+    // Hero Section
+    section.hero-section
+        .hero-background
+            .clouds-decoration
+                .cloud.cloud-1
+                .cloud.cloud-2
+                .cloud.cloud-3
+        .hero-content
+            .hero-text
+                h1.hero-title Fun-filled Videos
+                h1.hero-subtitle for Kids!
+            .hero-graphics
+                .tv-character
+                .truck-character
+        .hero-wave
+
+    // Wonderland Section
+    section.wonderland-section
+        .wonderland-content
+            .section-decoration
+                .decorative-elements
+            h2.section-title Wonderland Playtime
+            p.section-description Creative and playful content, sparking wonder and imagination in young hearts and magical learning.
+            .wonderland-graphics
+                .plane-character
+
+    // Popular Content Section
+    section.popular-content-section
+        .content-container
+            h2.section-title Discover Popular Content
+            p.section-description Discover popular videos full of fun and excitement from around the world! Join the trend and enjoy now!
+            .content-slider
+                .slider-controls
+                    button.slider-btn.slider-prev(aria-label="Previous")
+                        svg(width="26" height="26" viewBox="0 0 26 26" fill="none")
+                            path(d="M16.4745 20.2669C16.5755 20.1663 16.6555 20.0468 16.7102 19.9152C16.7648 19.7835 16.793 19.6424 16.793 19.4999C16.793 19.3574 16.7648 19.2163 16.7102 19.0847C16.6555 18.9531 16.5755 18.8335 16.4745 18.7329L10.7402 12.9999L16.4732 7.26692C16.6766 7.06384 16.7911 6.78828 16.7913 6.50084C16.7915 6.2134 16.6776 5.93764 16.4745 5.73422C16.2714 5.5308 15.9959 5.41638 15.7084 5.41614C15.421 5.41589 15.1452 5.52984 14.9418 5.73292L8.44182 12.2329C8.34088 12.3335 8.26079 12.4531 8.20615 12.5847C8.1515 12.7163 8.12337 12.8574 8.12337 12.9999C8.12337 13.1424 8.1515 13.2835 8.20615 13.4152C8.26079 13.5468 8.34088 13.6663 8.44182 13.7669L14.9418 20.2669C15.0424 20.3677 15.1619 20.4476 15.2934 20.5021C15.4249 20.5566 15.5658 20.5847 15.7082 20.5847C15.8505 20.5847 15.9915 20.5566 16.123 20.5021C16.2545 20.4476 16.3739 20.3677 16.4745 20.2669Z" fill="#0161AE")
+                .slider-content
+                    .content-cards
+                        .content-card.featured
+                            img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/f9e070d1f24e4170a0b7ab7fdfdb294af171dfce?width=860" alt="Featured Video")
+                        .content-card.side
+                            img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/e2814d16e81c3dffd7c4ec6761c0ba7d07c24a44?width=618" alt="Video")
+                        .content-card.side
+                            img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/009cad7e5b9ab40f622cfcc951596627038b463a?width=618" alt="Video")
+                .slider-controls
+                    button.slider-btn.slider-next(aria-label="Next")
+                        svg(width="26" height="26" viewBox="0 0 26 26" fill="none")
+                            path(d="M9.52548 20.2669C9.42454 20.1663 9.34445 20.0468 9.28981 19.9152C9.23516 19.7835 9.20703 19.6424 9.20703 19.4999C9.20703 19.3574 9.23516 19.2163 9.28981 19.0847C9.34445 18.9531 9.42454 18.8335 9.52548 18.7329L15.2598 12.9999L9.52678 7.26692C9.32336 7.06384 9.20894 6.78828 9.2087 6.50084C9.20845 6.2134 9.3224 5.93764 9.52548 5.73422C9.72856 5.5308 10.0041 5.41638 10.2916 5.41614C10.579 5.41589 10.8548 5.52984 11.0582 5.73292L17.5582 12.2329C17.6591 12.3335 17.7392 12.4531 17.7939 12.5847C17.8485 12.7163 17.8766 12.8574 17.8766 12.9999C17.8766 13.1424 17.8485 13.2835 17.7939 13.4152C17.7392 13.5468 17.6591 13.6663 17.5582 13.7669L11.0582 20.2669C10.9576 20.3677 10.8381 20.4476 10.7066 20.5021C10.5751 20.5566 10.4342 20.5847 10.2918 20.5847C10.1495 20.5847 10.0085 20.5566 9.87702 20.5021C9.74552 20.4476 9.62606 20.3677 9.52548 20.2669Z" fill="#0161AE")
+
+    // Statistics Section
+    section.stats-section
+        .stats-background
+            .stats-graphics
+                .character-left
+                .character-right
+        .stats-content
+            h2.section-title Miracles Created Together
+            .stats-badges
+                .badge-item
+                    .badge-icon.powerful-icon
+                    span.badge-text Powerful
+                    span.badge-subtext Content Creator
+                .badge-item
+                    .badge-icon.reviews-icon
+                    span.badge-text Positive
+                    span.badge-subtext Review Rating
+                .badge-item
+                    .badge-icon.growth-icon
+                    span.badge-text Smart Fast
+                    span.badge-subtext Growth Quicker
+            .stats-numbers
+                .stat-item
+                    span.stat-number 56,732
+                    span.stat-label Inspiring Boost
+                .stat-item
+                    span.stat-number 1,278
+                    span.stat-label Number of Videos
+                .stat-item
+                    span.stat-number 83,456
+                    span.stat-label Joy Watch
+                .stat-item
+                    span.stat-number 5,732,891
+                    span.stat-label Video Views
+
+    // Video Grid Section
+    section.video-grid-section
+        .content-container
+            h2.section-title Sit Back And Enjoy More Great Videos
+            .video-grid
+                +videoCard("https://cdn.builder.io/api/v1/image/assets/TEMP/a3e2c78403c8024a4ebbe35adf3e451d1e6b67c1?width=680", "Toy Video: Learn 12 colors and letters with play-doh 💕")
+                +videoCard("https://cdn.builder.io/api/v1/image/assets/TEMP/4610d69a18538b0176bc02ee1c9c6dd578ded4a4?width=680", "Toy Video: Slime easy funny diy homemaking")
+                +videoCard("https://cdn.builder.io/api/v1/image/assets/TEMP/e81fc7b20f064fcc2d29cabe988abe135cab3cd2?width=680", "Toy Video: Learn 12 colors and letters with play-doh 💕")
+                +videoCard("https://cdn.builder.io/api/v1/image/assets/TEMP/d532956eb37d3fd29a986c2038529d53ec437bcd?width=680", "Toy Video: Colorful balls for")
+                +videoCard("https://cdn.builder.io/api/v1/image/assets/TEMP/6732d756c99d081356171b72edfe63ddd544556c?width=680", "Toy Video: Slime easy funny diy homemaking")
+                +videoCard("https://cdn.builder.io/api/v1/image/assets/TEMP/d2bdf765ad440416833b81e4846dec390624a482?width=714", "Toy Video: Learn 12 colors and letters with play-doh 💕")
+                +videoCard("https://cdn.builder.io/api/v1/image/assets/TEMP/50f3f632cf1d6692f22469f59f1b4480a1f11a39?width=680", "Toy Video: Learn 12 colors and letters with play-doh 💕")
+                +videoCard("https://cdn.builder.io/api/v1/image/assets/TEMP/5d69ea345ab30ecc254fdaee335de01c994af9ec?width=680", "Toy Video: Slime easy funny diy homemaking")
+                +videoCard("https://cdn.builder.io/api/v1/image/assets/TEMP/1476d926277321d88ff56774d9aa001a6b48aabb?width=680", "Toy Video: Learn 12 colors and letters with play-doh 💕")
