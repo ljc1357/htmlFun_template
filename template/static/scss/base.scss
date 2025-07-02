@@ -93,6 +93,22 @@ body {
   }
 }
 
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 8px;
+  gap: 4px;
+
+  .hamburger-line {
+    width: 24px;
+    height: 3px;
+    background: var(--primary-blue);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+}
+
 // Hero Section
 .hero-section {
   min-height: 100vh;
