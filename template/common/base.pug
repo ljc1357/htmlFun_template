@@ -1,6 +1,6 @@
 mixin imgPlus(src)
         - src = src ? "https://resource.goodkidsplay.com/" + src : ""
-        img.cs-lazy(data-load=src, alt="")
+        img.cs-lazy(data-load=src, alt="") 
         .loading-img
             .loading-inner
                 span loading...
@@ -10,9 +10,6 @@ html(ver=common.version)
         meta(content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" data-n-head="true" name="viewport")
         meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
         link(rel="icon" type="image/x-icon" href="/favicon.ico")
-        link(rel="preconnect" href="https://fonts.googleapis.com")
-        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
-        link(href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet")
         style
             include:scss /static/scss/base.scss
         block head
