@@ -696,8 +696,12 @@ body {
     height: 50px;
   }
 
-  .nav-menu {
+  .main-navigation {
     display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
   }
 
   .hero-content {
