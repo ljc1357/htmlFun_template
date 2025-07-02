@@ -1,0 +1,8 @@
+package-lock.json
+jsonData
+.idea/
+.vscode
+sites
+pagesPugFn
+node_modules
+.DS_Store

@@ -1,0 +1,26 @@
+{
+  "name": "pug-site-template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --ignore jsonData/ --ignore node_modules/ --ignore template/ --ext js index.js",
+    "getData": "node index.js",
+    "getFun": "node index.js",
+    "compileFn": "node index.js",
+    "buildFn": "node index.js",
+    "buildStatic": "node index.js",
+    "lang": "node index.js",
+    "build": "npm run getData && npm run buildFn",
+    "update": "npm install pug-site-core@latest",
+    "imagemin": "node index.js",
+    "debug": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "pug-site-core": "^3.0.14"
+  }
+}
