@@ -1,6 +1,312 @@
 extends /common/base.pug
+include /components/app-card.pug
+
 block body
-    div demo
-    div 变量a #{common.lang.a}
-    div 变量c1111111111
-    include /components/demo.pug
+  // Header
+  header.header
+    .header__content
+      // Logo
+      svg.header__logo(width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+        g(clip-path="url(#clip0_9_1194)")
+          path(d="M10.6104 12.4042H7.1811C8.1671 8.66968 8.71902 8.42836 11.677 8.40422L12.8801 4.00603C8.90506 4.00603 7.671 5.50226 6.62918 9.33937L4.10526 18.6727H0L2.52393 9.33937C4.3285 2.61237 8.30353 0 13.9777 0H18.0644L17.1032 3.46908H17.128L13.0165 18.6727H8.90506L10.6042 12.4042H10.6104Z" fill="#3E3E56")
+          path(d="M15.5714 20L15.6831 19.6018L18.0705 10.6667H22.182L21.1154 14.6667H22.7339C23.968 14.6667 24.9788 14.0814 25.5307 12C26.1632 9.65309 25.3943 9.33333 24.1602 9.33333H22.2688C18.1574 9.33333 18.3186 8.80241 19.255 5.33333H25.2578C28.1911 5.33333 31.1243 6.58823 29.6422 12C28.2717 17.1463 24.6005 18.6667 21.6673 18.6667H20.0488L19.7201 19.8673H19.6953L18.5977 24C15.0319 24 14.4862 24 15.5838 20H15.5714Z" fill="#3E3E56")
+          path(d="M29.7662 20L29.8778 19.6018L32.2653 10.6667H36.3768L35.3101 14.6667H36.9287C38.1627 14.6667 39.1735 14.0814 39.7255 12C40.358 9.65309 39.589 9.33333 38.355 9.33333H36.4636C32.3521 9.33333 32.5134 8.80241 33.4498 5.33333H39.4526C42.3858 5.33333 45.319 6.58823 43.8369 12C42.4664 17.1463 38.7953 18.6667 35.8621 18.6667H34.2435L33.9149 19.8673H33.89L32.7924 24C29.2267 24 28.681 24 29.7786 20H29.7662Z" fill="#3E3E56")
+          path(d="M44.24 18.6667L47.8305 5.33333H51.942L48.3514 18.6667H44.24ZM53.3993 0L52.3017 4H48.1902C49.2878 0 49.8336 0 53.3993 0Z" fill="#3E3E56")
+          path(d="M59.5944 9.33333H57.9759L55.452 18.6667H51.3405L54.9559 5.33333H60.6859C63.6191 5.33333 66.5275 6.64253 65.0702 12L63.2594 18.6667H59.1479L60.9587 12C61.5913 9.67722 60.8223 9.33333 59.5882 9.33333H59.5944Z" fill="#3E3E56")
+          path(d="M75.7116 9.33333H74.093C72.859 9.33333 71.8482 9.91855 71.2962 12C70.6637 14.3469 71.4327 14.6667 72.6667 14.6667H74.5581C78.6696 14.6667 78.5083 15.1976 77.5719 18.6667H71.5691C68.6359 18.6667 65.7027 17.4118 67.1848 12C68.5553 6.8537 72.2264 5.33333 75.1596 5.33333H76.7782L77.1068 4.13273L77.1317 4C78.2293 0 78.775 0 82.3407 0L81.1377 4.39819L78.7502 13.3333H74.6387L75.7054 9.33333H75.7116Z" fill="#3E3E56")
+          path(d="M80.1207 18.6667L83.7112 5.33333H87.8227L84.2321 18.6667H80.1207ZM89.28 0L88.1823 4H84.0709C85.1685 0 85.7142 0 89.28 0Z" fill="#3E3E56")
+        defs
+          clipPath#clip0_9_1194
+            rect(width="89.28" height="24" fill="white")
+      
+      // Search
+      .header__search
+        input(type="text" placeholder="Search")
+        svg.search-icon(width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg")
+          g(clip-path="url(#clip0_293_518)")
+            path(d="M13.7568 13.7567C13.433 14.0805 12.8932 14.0805 12.6228 13.7567L10.0853 11.2192C7.60028 13.1092 4.09065 12.9474 1.82265 10.6785C-0.607225 8.24862 -0.607225 4.25249 1.82265 1.82262C4.25253 -0.607255 8.24865 -0.607255 10.6785 1.82262C12.9474 4.09062 13.1093 7.60112 11.2193 10.0852L13.7568 12.6227C14.0805 12.8931 14.0805 13.433 13.7568 13.7567ZM9.49115 2.90237C9.06057 2.46612 8.54764 2.11973 7.98211 1.88331C7.41658 1.64689 6.80973 1.52515 6.19678 1.52515C5.58382 1.52515 4.97697 1.64689 4.41144 1.88331C3.84592 2.11973 3.33298 2.46612 2.9024 2.90237C1.06665 4.739 1.06665 7.6545 2.9024 9.43687C3.33298 9.87312 3.84592 10.2195 4.41144 10.4559C4.97697 10.6924 5.58382 10.8141 6.19678 10.8141C6.80973 10.8141 7.41658 10.6924 7.98211 10.4559C8.54764 10.2195 9.06057 9.87312 9.49115 9.43687C11.3269 7.6545 11.3269 4.73812 9.49115 2.90237Z" fill="#9A9A9A")
+          defs
+            clipPath#clip0_293_518
+              rect(width="14" height="14" fill="white")
+
+  // Hero Section
+  section.hero
+    .hero__content
+      .hero__featured
+        .featured-badge
+          span 100% FREE
+        .featured-app
+          img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/fb3e36a243ffcd5b3121d898abb0f79a5695013b?width=156" alt="CapCut")
+          .app-info
+            .app-name CapCut - Video Editor
+            .download-progress
+              .progress-bar
+        button.download-btn
+          svg(width="16" height="16" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg")
+            path(d="M4.49854 7.18845L8.23004 10.92C8.35265 11.0425 8.51893 11.1114 8.6923 11.1114C8.86568 11.1114 9.03196 11.0425 9.15457 10.92L12.8861 7.18845L11.9615 6.26392L8.6923 9.53315L5.42307 6.26392L4.49854 7.18845Z" fill="white")
+            path(d="M8.03839 10.4577V2.28467H9.34608V10.4577H8.03839Z" fill="white")
+            path(d="M3.78847 10.4576V12.7461H13.5962V10.4576H14.9039V13.3999C14.9039 13.5734 14.835 13.7397 14.7123 13.8623C14.5897 13.9849 14.4234 14.0538 14.25 14.0538H3.13462C2.96121 14.0538 2.7949 13.9849 2.67228 13.8623C2.54966 13.7397 2.48077 13.5734 2.48077 13.3999V10.4576H3.78847Z" fill="white")
+          span Download
+      
+      img.hero__illustration(src="https://cdn.builder.io/api/v1/image/assets/TEMP/467823981a9dce9d3108e2b0445d192a670d04d1?width=512" alt="App illustration")
+
+  .container
+    // Top free apps to download
+    section.section
+      h2.heading-large Top free apps to download
+      .app-list
+        +appCard({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/f0d79919d832e7e395a516095e96ce4a05848bca?width=156",
+          name: "Tango- Live Stream, ...",
+          category: "Social",
+          rating: "4.3",
+          rank: "1"
+        })
+        +appCard({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/fb3e36a243ffcd5b3121d898abb0f79a5695013b?width=156",
+          name: "Tango- Live Stream, ...",
+          category: "Social", 
+          rating: "4.3",
+          rank: "2"
+        })
+        +appCard({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/7ae5746ca9a4de907b7cb04753767d0020ca807c?width=156",
+          name: "Tango- Live Stream, ...",
+          category: "Social",
+          rating: "4.3",
+          rank: "3"
+        })
+
+    // Software feast
+    section.section.software-feast
+      h2.heading-large Software feast
+      .featured-cards
+        +featuredCard({
+          banner: "https://cdn.builder.io/api/v1/image/assets/TEMP/7eee3cce011baa1a63dfa1aa37d987098c9c2976?width=748",
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/2fb01bfeaaa4b3066a8ab6c9f0068f5a75662e90?width=120",
+          name: "Design Home™: H...",
+          category: "Shopping",
+          rating: "4.66"
+        })
+        +featuredCard({
+          banner: "https://cdn.builder.io/api/v1/image/assets/TEMP/1ed519149b3e3cf81597dd2eb0f0fe0b85ffa83d?width=748",
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/eacac1c01428b35fff4c43d9067881cd837803bb?width=120",
+          name: "Netflix",
+          category: "Shopping",
+          rating: "4.66"
+        })
+        +featuredCard({
+          banner: "https://cdn.builder.io/api/v1/image/assets/TEMP/e4ff0d3529b458755b262bc357fd863267409220?width=748",
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/79a6946ba06dc61020a1827dce56bb95e4c1e98e?width=120",
+          name: "Amazon Shopping",
+          category: "Shopping", 
+          rating: "4.66"
+        })
+
+    // Must have apps
+    section.section
+      h2.heading-large Must have apps
+      .app-list
+        +appCard({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/f2f96a38056457e43f3d150eedeba2aaca630c49?width=156",
+          name: "Pokémon GO",
+          category: "free",
+          rating: "4.3",
+          featured: true
+        })
+        +appCard({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/a579eb9a9532cd99d0960d73bb73c616b08dc886?width=156",
+          name: "Tango- Live Stream, ...",
+          category: "Social",
+          rating: "4.3",
+          featured: true
+        })
+        +appCard({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/7ae5746ca9a4de907b7cb04753767d0020ca807c?width=156",
+          name: "Tango- Live Stream,...",
+          category: "Social",
+          rating: "4.3"
+        })
+
+    // Category badges
+    .category-badges
+      .category-badge.category-badge--orange
+        img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/40355f1c30c3d634fb4b68bc32cf494de8aef57c?width=50" alt="")
+        span Explosive Social Apps
+      .category-badge.category-badge--pink
+        img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/7ee6c34691ac4a235aa76d93575817b81c753372?width=50" alt="")
+        span Hot Search Lifestyle App
+      .category-badge.category-badge--blue
+        img(src="https://cdn.builder.io/api/v1/image/assets/TEMP/baae99de49677dd94a9ad4cd231aeb22aa147d10?width=50" alt="")
+        span Favourite Entertainment App
+
+    // App hot list
+    section.section
+      h2.heading-large App hot list
+      .app-list
+        +appCard({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/f2f96a38056457e43f3d150eedeba2aaca630c49?width=156",
+          name: "Max: Stream HBO, TV, & Movies",
+          category: "Social",
+          rating: "4.3",
+          rank: "1"
+        })
+        +appCard({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/9bcf1dacf499424a6a8c4eb7419d98b69a7d3626?width=156",
+          name: "Arby's Fast Food Sandwiches",
+          category: "Social",
+          rating: "4.3",
+          rank: "2"
+        })
+        +appCard({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/0c397a1e92b90b717213628e1af99ff34d1dd3f9?width=156",
+          name: "PDF Pro - Reader & Maker",
+          category: "Social",
+          rating: "4.3",
+          rank: "3"
+        })
+        +appCard({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/5f17063be4357dfdf4ba98ddd8ed1af43539e92b?width=156",
+          name: "ChromaCam",
+          category: "Social",
+          rating: "4.3",
+          rank: "4"
+        })
+
+    // Top picks
+    section.section
+      h2.heading-large Top picks
+      .app-grid
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/4a100cbb391c7457c789d6d3c7b9496e4f31c957?width=191",
+          name: "Clash of...",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/63180a0dca6e646c2bef67d9b009ccfb58a5f661?width=191",
+          name: "ChromaCam",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/b299ea8031999e7b12d71577db15c5d6e981fa61?width=191",
+          name: "AXS Tickets",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/415e45719cd4ac459b47f15e8e148ddb9ea8b974?width=191",
+          name: "Tango- Live ...",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/5ff276065e4382d44e32e1a3bc9e5564fb811abb?width=191",
+          name: "AXS Tickets",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/ae5808799fe70768664fe44cf4a973955df23d69?width=191",
+          name: "Tango- Live ...",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/0b111131cebf06a4187d5a76932f7523fdfdbf17?width=191",
+          name: "Netflix",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/5d93b1067a6131ceac73b7fa3bd9cd876f0e1482?width=191",
+          name: "Tango- Live ...",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/f7cd851b0b035d6f47ee8c56e1e40feda7c30b89?width=191",
+          name: "Tango- Live ...",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/3b319256d0be34f74d8a220aa0e2c3d50d5eea66?width=191",
+          name: "Netflix",
+          rating: "4.3"
+        })
+
+    // Editor's recommendation  
+    section.section
+      h2.heading-large Editor's recommendation
+      .app-grid
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/b67de052f058e36968b70ca6f3bdaebbcaeea5ee?width=191",
+          name: "Tango- Live ...",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/63180a0dca6e646c2bef67d9b009ccfb58a5f661?width=191",
+          name: "Tango- Live ...",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/8597307d54183654e7609c0a3de9c562e4da7024?width=191",
+          name: "Tango- Live ...",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/95043417ac3571b72ed532c8d7b5f696cfdca076?width=191",
+          name: "Tango- Live ...",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/45a920f0183966e407e38ff47d9a784feefa187b?width=191",
+          name: "AXS Tickets",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/2ea39442b91cdd35abd23395567a110a770793ec?width=191",
+          name: "Clash of ...",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/cf4d1379469b345066e50198c061fc9c6bb365c3?width=191",
+          name: "Tango- Live ...",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/b299ea8031999e7b12d71577db15c5d6e981fa61?width=191",
+          name: "Netflix",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/d8c3fa2969dca77a5e5275759f065eb318ec5c72?width=191",
+          name: "Tango- Live ...",
+          rating: "4.3"
+        })
+        +appGridItem({
+          icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/0aa98e5df38d911653388b442c1a3b33195139fb?width=191",
+          name: "Tango- Live ...",
+          rating: "4.3"
+        })
+
+  // Footer
+  footer.footer
+    .footer__content
+      // Logo
+      svg.footer-logo(width="90" height="24" viewBox="0 0 90 24" fill="none" xmlns="http://www.w3.org/2000/svg")
+        g(clip-path="url(#clip0_17_350)")
+          path(d="M10.6104 12.4042H7.1811C8.1671 8.66968 8.71902 8.42836 11.677 8.40422L12.8801 4.00603C8.90506 4.00603 7.671 5.50226 6.62918 9.33937L4.10526 18.6727H0L2.52393 9.33937C4.3285 2.61237 8.30353 0 13.9777 0H18.0644L17.1032 3.46908H17.128L13.0165 18.6727H8.90506L10.6042 12.4042H10.6104Z" fill="white")
+          path(d="M15.5714 19.9999L15.6831 19.6017L18.0705 10.6666H22.182L21.1154 14.6666H22.7339C23.968 14.6666 24.9788 14.0814 25.5307 11.9999C26.1632 9.65301 25.3943 9.33325 24.1602 9.33325H22.2688C18.1574 9.33325 18.3186 8.80233 19.255 5.33325H25.2578C28.1911 5.33325 31.1243 6.58815 29.6422 11.9999C28.2717 17.1462 24.6005 18.6666 21.6673 18.6666H20.0488L19.7201 19.8672H19.6953L18.5977 23.9999C15.0319 23.9999 14.4862 23.9999 15.5838 19.9999H15.5714Z" fill="white")
+          path(d="M29.7662 19.9999L29.8778 19.6017L32.2653 10.6666H36.3768L35.3101 14.6666H36.9287C38.1627 14.6666 39.1735 14.0814 39.7255 11.9999C40.358 9.65301 39.589 9.33325 38.355 9.33325H36.4636C32.3521 9.33325 32.5134 8.80233 33.4498 5.33325H39.4526C42.3858 5.33325 45.319 6.58815 43.8369 11.9999C42.4664 17.1462 38.7953 18.6666 35.8621 18.6666H34.2435L33.9149 19.8672H33.89L32.7924 23.9999C29.2267 23.9999 28.681 23.9999 29.7786 19.9999H29.7662Z" fill="white")
+          path(d="M44.24 18.6667L47.8305 5.33333H51.942L48.3514 18.6667H44.24ZM53.3993 0L52.3017 4H48.1902C49.2878 0 49.8336 0 53.3993 0Z" fill="white")
+          path(d="M59.5944 9.33325H57.9759L55.452 18.6666H51.3405L54.9559 5.33325H60.6859C63.6191 5.33325 66.5275 6.64245 65.0702 11.9999L63.2594 18.6666H59.1479L60.9587 11.9999C61.5913 9.67714 60.8223 9.33325 59.5882 9.33325H59.5944Z" fill="white")
+          path(d="M75.7116 9.33333H74.093C72.859 9.33333 71.8482 9.91855 71.2962 12C70.6637 14.3469 71.4327 14.6667 72.6667 14.6667H74.5581C78.6696 14.6667 78.5083 15.1976 77.5719 18.6667H71.5691C68.6359 18.6667 65.7027 17.4118 67.1848 12C68.5553 6.8537 72.2264 5.33333 75.1596 5.33333H76.7782L77.1068 4.13273L77.1317 4C78.2293 0 78.775 0 82.3407 0L81.1377 4.39819L78.7502 13.3333H74.6387L75.7054 9.33333H75.7116Z" fill="white")
+          path(d="M80.1207 18.6667L83.7112 5.33333H87.8227L84.2321 18.6667H80.1207ZM89.28 0L88.1823 4H84.0709C85.1685 0 85.7142 0 89.28 0Z" fill="white")
+        defs
+          clipPath#clip0_17_350
+            rect(width="89.28" height="24" fill="white")
+      
+      .footer-text Welcome to appindi.com , enjoy exploring our colourful world!
+      
+      .footer-links
+        a(href="#") About Us
+        span.separator /
+        a(href="#") Contact us
+        span.separator /
+        a(href="#") Disclaimer
+        span.separator /
+        a(href="#") Privacy Policy
