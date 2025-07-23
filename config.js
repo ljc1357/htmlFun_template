@@ -3,28 +3,16 @@ export const config = {
   devServer: {
     //开发服务器的端口
     port: 80,
-    /**
-     * 代理配置，类似Vue的代理配置
-     * 示例：
-     * proxy: {
-     *   '/api': {
-     *     target: 'http://example.com',     // 必填，代理目标地址
-     *     changeOrigin: true,               // 可选，是否改变源地址，默认true
-     *     pathRewrite: { '^/api': '' },     // 可选，路径重写规则
-     *     secure: false,                    // 可选，是否验证SSL证书，默认true
-     *     ws: true                          // 可选，是否代理websocket，默认true
-     *   },
-     *   '/simple-api': 'http://simple.example.com'  // 简化写法
-     */
     // Pug调试功能配置
     isDebug: false,
-    proxy: {},
+    proxy: {
+    },
     // abtest功能配置
     abtest: {
       enabled: false,
       // 当前测试组 o或者不配置为原版
-      curVariant: "o"
-    }
+      curVariant: "o",
+    },
   },
   //配置getData.js中自动生成的函数模版
   getDataFnTemplate: function template(language) {
@@ -34,7 +22,9 @@ export const config = {
   //配置的国家数组将会遍历参数传递给getData.js中的函数并且影响翻译时默认将会翻译到的语言以及打包时候将会打包哪些国家的数据内容 数组的第一个国家将会是开发环境下默认访问到的国家的数据
   languageList: ["us"],
   //所有国家模版中都会用到的数据pug文件中可以使用common对象去访问
-  commonData: { version: "1.0.0" },
+  commonData: {
+    version: "1.0.0",
+  },
   //pug打包成生成函数的根目录名字
   fnOutput: "sites",
   //pug打包成html的根目录名字

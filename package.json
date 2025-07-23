@@ -21,6 +21,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "pug-site-core": "^3.0.14"
+    "pug-site-core": "^3.0.15"
   }
 }
