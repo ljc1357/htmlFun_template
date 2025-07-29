@@ -6,3 +6,5 @@ sites
 pagesPugFn
 node_modules
 .DS_Store
+yarn.lock
+api_cache
